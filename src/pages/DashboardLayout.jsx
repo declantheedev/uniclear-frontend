@@ -7,9 +7,9 @@ const DashboardLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="flex flex-col min-h-screen bg-gray-50">
       <NavBar onMenuClick={() => setSidebarOpen(true)} />
-      <div className="flex">
+      <div className="flex flex-1 overflow-hidden">
         {/* Desktop Sidebar - always visible on large screens */}
         <div className="hidden lg:block w-64 flex-shrink-0">
           <SideBar />
@@ -28,8 +28,8 @@ const DashboardLayout = () => {
           </>
         )}
         
-        {/* Main Content Area */}
-        <div className="flex-1 p-4 sm:p-6">
+        {/* Main Content Area - takes up remaining space and scrolls independently */}
+        <div className="flex-1 overflow-auto p-4 sm:p-6">
           {/* This is where the nested routes will be rendered */}
           <Outlet />
         </div>
