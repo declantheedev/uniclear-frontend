@@ -1,0 +1,15 @@
+/* Global color variables for the project */
+:root {
+  --color-primary: #2600FF; /* the blue requested */
+  --color-primary-600: #1f00e6;
+  --color-white: #ffffff;
+  --color-muted: #e6f0ff;
+}
+
+.bg-primary-custom {
+  background-color: var(--color-primary) !important;
+}
+
+.text-primary-custom {
+  color: var(--color-primary) !important;
+}
