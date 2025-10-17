@@ -1,28 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useUser } from '../context/UserContext';
 import { useAuth } from '../context/AuthContext';
 
 const DashboardHome = () => {
   const { user, loading } = useUser();
   const { isAuthenticated, fetchUserData, accessToken } = useAuth();
-  const [error, setError] = useState(null);
 
   // Fetch user data when component mounts and user is authenticated
   useEffect(() => {
-    const loadUserData = async () => {
-      if (isAuthenticated && accessToken && !user) {
-        try {
-          console.log('DashboardHome: Fetching user data');
-          await fetchUserData(accessToken);
-        } catch (err) {
-          console.error('DashboardHome: Error fetching user data:', err);
-          setError('Failed to load user data. Please try refreshing the page.');
-        }
-      }
-    };
-    
-    loadUserData();
+    if (isAuthenticated && accessToken && !user) {
+      fetchUserData(accessToken);
+    }
   }, [isAuthenticated, accessToken, user, fetchUserData]);
+
+  // Debug: Log when component renders
+  useEffect(() => {
+    console.log('DashboardHome rendered with:', { user, loading, isAuthenticated });
+  }, [user, loading, isAuthenticated]);
 
   if (loading) {
     return (
@@ -37,21 +31,6 @@ const DashboardHome = () => {
       <div className="bg-white rounded-lg shadow p-6">
         <h2 className="text-xl font-semibold mb-4">Access Denied</h2>
         <p>You need to be logged in to view this page.</p>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-xl font-semibold mb-4 text-red-600">Error</h2>
-        <p className="text-red-500">{error}</p>
-        <button 
-          onClick={() => window.location.reload()} 
-          className="mt-4 px-4 py-2 bg-primary-custom text-white rounded-md"
-        >
-          Refresh Page
-        </button>
       </div>
     );
   }
@@ -86,9 +65,9 @@ const DashboardHome = () => {
         <div className="bg-white rounded-lg shadow p-6">
           <h2 className="text-xl font-semibold mb-4">Academic Information</h2>
           <div className="space-y-2">
-            <p><span className="font-medium">School:</span> {user.school?.full_name || 'Not specified'}</p>
-            <p><span className="font-medium">Faculty:</span> {user.faculty?.full_name || 'Not specified'}</p>
-            <p><span className="font-medium">Department:</span> {user.department?.full_name || 'Not specified'}</p>
+            <p><span className="font-medium">School:</span> {user.school?.full_name}</p>
+            <p><span className="font-medium">Faculty:</span> {user.faculty?.full_name}</p>
+            <p><span className="font-medium">Department:</span> {user.department?.full_name}</p>
           </div>
         </div>
         
@@ -103,5 +82,6 @@ const DashboardHome = () => {
     </div>
   );
 };
+
 
 export default DashboardHome;
