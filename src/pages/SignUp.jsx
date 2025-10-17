@@ -240,8 +240,8 @@ const SignUp = () => {
     <div className="min-h-screen bg-[#F5F5F5]">
       <LandingNav />
       
-      {/* Decorative top wave */}
-      <div className="absolute top-0 left-0 right-0 h-96 bg-[#EEF1FF] -z-10">
+      {/* Decorative top wave - hidden on mobile for better performance */}
+      <div className="absolute top-0 left-0 right-0 h-96 bg-[#EEF1FF] -z-10 hidden sm:block">
         <div className="absolute bottom-0 left-0 right-0">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full">
             <path
@@ -254,8 +254,8 @@ const SignUp = () => {
       </div>
 
       {/* Sign up form */}
-      <div className="max-w-md mx-auto px-4 pt-16 pb-8">
-        <h1 className="text-2xl font-bold text-center text-gray-900 mb-8">Sign up</h1>
+      <div className="max-w-md mx-auto px-4 sm:px-6 pt-16 pb-8">
+        <h1 className="text-2xl font-bold text-center text-gray-900 mb-6 sm:mb-8">Sign up</h1>
         
         {error && (
           <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-md border border-red-300 text-sm">
@@ -270,7 +270,7 @@ const SignUp = () => {
         )}
         
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <InputField
               label="First Name"
               id="firstName"
@@ -341,7 +341,7 @@ const SignUp = () => {
             </>
           )}
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <InputField
               label="Reg No."
               id="regNo"
@@ -396,7 +396,7 @@ const SignUp = () => {
             <label className="block text-sm font-medium text-primary-custom mb-1">
               Profile Picture
             </label>
-            <div className="flex items-center space-x-4">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
               {previewUrl && (
                 <img 
                   src={previewUrl} 
@@ -405,11 +405,11 @@ const SignUp = () => {
                 />
               )}
               <label className="flex flex-col items-center justify-center w-full px-4 py-6 bg-white border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
-                <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                  <svg className="w-8 h-8 mb-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                <div className="flex flex-col items-center justify-center pt-2 pb-3">
+                  <svg className="w-8 h-8 mb-2 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
                   </svg>
-                  <p className="mb-2 text-sm text-gray-500">
+                  <p className="mb-1 text-sm text-gray-500">
                     <span className="font-semibold">Click to upload</span> or drag and drop
                   </p>
                   <p className="text-xs text-gray-500">

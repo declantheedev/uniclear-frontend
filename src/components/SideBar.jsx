@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { User, FileText, Check, MessageSquare, Plus, LogOut } from 'lucide-react';
+import { User, FileText, Check, MessageSquare, Plus, LogOut, X } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 const Icon = ({ children }) => (
@@ -9,7 +9,7 @@ const Icon = ({ children }) => (
   </div>
 );
 
-const SideBar = () => {
+const SideBar = ({ onClose }) => {
   const { logout } = useAuth();
 
   const handleLogout = () => {
@@ -18,10 +18,23 @@ const SideBar = () => {
 
   return (
     <aside
-      className="w-56 min-h-screen p-6 text-white flex flex-col justify-between"
+      className="h-full p-6 text-white flex flex-col justify-between"
       style={{ backgroundColor: 'var(--color-primary)' }}
       aria-label="Main sidebar"
     >
+      {/* Mobile Close Button */}
+      {onClose && (
+        <div className="flex justify-end lg:hidden mb-4">
+          <button 
+            onClick={onClose}
+            className="p-2 rounded-md hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/30"
+            aria-label="Close sidebar"
+          >
+            <X className="w-6 h-6" />
+          </button>
+        </div>
+      )}
+      
       <div>
         <h1 className="text-2xl font-bold mb-8 text-center">Dashboard</h1>
 

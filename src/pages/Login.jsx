@@ -35,8 +35,8 @@ const Login = () => {
   return (
     <div className="min-h-screen bg-primary-custom flex flex-col">
       <LandingNav />
-      <div className="flex-1 flex flex-col justify-center items-center relative">
-        <h1 className="text-3xl font-bold text-white mb-8 mt-8">Login</h1>
+      <div className="flex-1 flex flex-col justify-center items-center relative px-4">
+        <h1 className="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-8 mt-4 sm:mt-8">Login</h1>
         {error && (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4 w-full max-w-md">
             {error}
@@ -51,7 +51,7 @@ const Login = () => {
               name="regNo"
               value={formData.regNo}
               onChange={handleChange}
-              className="w-full px-4 py-2 rounded-md bg-white text-gray-900 border-none focus:outline-none focus:ring-2 focus:ring-white"
+              className="w-full px-4 py-2 sm:py-3 rounded-md bg-white text-gray-900 border-none focus:outline-none focus:ring-2 focus:ring-white"
               placeholder="Your registration number"
               required
             />
@@ -64,7 +64,7 @@ const Login = () => {
               name="password"
               value={formData.password}
               onChange={handleChange}
-              className="w-full px-4 py-2 rounded-md bg-white text-gray-900 border-none focus:outline-none focus:ring-2 focus:ring-white"
+              className="w-full px-4 py-2 sm:py-3 rounded-md bg-white text-gray-900 border-none focus:outline-none focus:ring-2 focus:ring-white"
               placeholder="Your registration password"
               required
             />
@@ -72,12 +72,12 @@ const Login = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full py-2 px-4 bg-white text-primary-custom font-bold rounded-md hover:bg-gray-100 transition-colors disabled:opacity-50"
+            className="w-full py-2 sm:py-3 px-4 bg-white text-primary-custom font-bold rounded-md hover:bg-gray-100 transition-colors disabled:opacity-50"
           >
             {isLoading ? 'Logging in...' : 'Login'}
           </button>
         </form>
-        <p className="mt-8 text-white text-center">
+        <p className="mt-6 sm:mt-8 text-white text-center">
           Don't have an account?{' '}
           <Link to="/signup" className="underline font-semibold">
             click here to register
