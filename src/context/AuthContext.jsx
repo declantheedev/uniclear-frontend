@@ -5,7 +5,7 @@ import { useUser } from './UserContext';
 const BASE_URL =  import.meta.env.VITE_BASE_URL
 const LOGIN_ENDPOINT = '/user_profile_api/auth/token/';
 const REFRESH_ENDPOINT = '/user_profile_api/auth/token/refresh/';
-const USER_DASHBOARD_ENDPOINT = '/user_profile_api/dashboard/';
+const USER_DASHBOARD_ENDPOINT = 'user_profile_api/dashboard/';
 
 // Create context
 const AuthContext = createContext();
