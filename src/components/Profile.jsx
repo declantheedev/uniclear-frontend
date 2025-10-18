@@ -18,9 +18,9 @@ const Profile = () => {
   }, [isAuthenticated, accessToken, user, fetchUserData]);
 
   // Debug: Log when component renders
-  useEffect(() => {
-    console.log('Profile component rendered with:', { user, loading, isAuthenticated });
-  }, [user, loading, isAuthenticated]);
+  // useEffect(() => {
+  //   console.log('Profile component rendered with:', { user, loading, isAuthenticated });
+  // }, [user, loading, isAuthenticated]);
 
   if (loading) {
     return (
@@ -56,6 +56,9 @@ const Profile = () => {
           <h2 className="text-3xl font-extrabold text-primary-custom">
             {user.first_name} {user.last_name}
           </h2>
+          <div className="mt-2 text-blue-800 font-bold uppercase tracking-wide text-xl">
+            HENRY KENEDDY {user.matric_number}
+          </div>
           <div className="mt-2 text-gray-400 uppercase tracking-wide text-sm">
             REG NO: {user.matric_number}
           </div>
@@ -75,7 +78,7 @@ const Profile = () => {
           </div>
 
           <div className="mt-6">
-            <button className="px-6 py-2 rounded-md bg-primary-custom text-white">Proceed</button>
+            <button className="px-6 py-2 rounded-md bg-primary-custom text-white">Edit Profile</button>
           </div>
         </div>
       </div>
@@ -84,11 +87,11 @@ const Profile = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <InfoCard 
           title="Email"
-          value={user.email}
+          value={user.email || 'Not specified'}
         />
         <InfoCard 
           title="Level"
-          value={user.level}
+          value={user.level?.full_name || 'Not specified'}
         />
         <InfoCard 
           title="School"

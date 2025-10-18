@@ -13,10 +13,10 @@ const DashboardHome = () => {
     }
   }, [isAuthenticated, accessToken, user, fetchUserData]);
 
-  // Debug: Log when component renders
-  useEffect(() => {
-    console.log('DashboardHome rendered with:', { user, loading, isAuthenticated });
-  }, [user, loading, isAuthenticated]);
+  // // Debug: Log when component renders
+  // useEffect(() => {
+  //   console.log('DashboardHome rendered with:', { user, loading, isAuthenticated });
+  // }, [user, loading, isAuthenticated]);
 
   if (loading) {
     return (

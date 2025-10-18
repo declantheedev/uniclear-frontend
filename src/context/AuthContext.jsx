@@ -99,7 +99,7 @@ export const AuthProvider = ({ children }) => {
         setUser(userData);
         
         // Debug: Log user data to console when logged in
-        console.log('User Data:', userData);
+        // console.log('User Data:', userData);
         
         return userData;
       } else {
@@ -122,8 +122,8 @@ export const AuthProvider = ({ children }) => {
                 const userData = await retryResponse.json();
                 setUser(userData);
                 
-                // Debug: Log user data to console when logged in
-                console.log('User Data (after token refresh):', userData);
+                // // Debug: Log user data to console when logged in
+                // console.log('User Data (after token refresh):', userData);
                 
                 return userData;
               } else {
@@ -175,7 +175,7 @@ export const AuthProvider = ({ children }) => {
         await fetchUserData(access);
         
         // Debug: Log successful login
-        console.log('Login successful. Access token:', access);
+        // console.log('Login successful. Access token:', access);
         
         return data;
       } else {
@@ -200,7 +200,7 @@ export const AuthProvider = ({ children }) => {
     sessionStorage.removeItem('refreshToken');
     
     // Debug: Log logout
-    console.log('User logged out');
+    // console.log('User logged out');
     
     // Clear refresh timer
     if (refreshTimer) {
@@ -228,7 +228,7 @@ export const AuthProvider = ({ children }) => {
         sessionStorage.setItem('accessToken', access);
         
         // Debug: Log token refresh
-        console.log('Token refreshed. New access token:', access);
+        // console.log('Token refreshed. New access token:', access);
         
         return access;
       } else {

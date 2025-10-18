@@ -25,8 +25,9 @@ function App() {
             <DashboardLayout />
           </ProtectedRoute>
         }>
-          <Route index element={<DashboardHome />} />
-          <Route path="profile" element={<ProfileContent />} />
+          {/* <Route index element={<DashboardHome />} /> */}
+          <Route index element={<ProfileContent />} />
+          {/* <Route path="profile" element={<ProfileContent />} /> */}
           <Route path="settings" element={<SettingsContent />} />
           <Route path="documents" element={<DocumentsContent />} />
           <Route path="status" element={<StatusContent />} />

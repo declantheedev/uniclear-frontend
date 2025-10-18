@@ -22,9 +22,9 @@ export const UserProvider = ({ children }) => {
   }, [user]);
 
   // Debug: Log loading state changes
-  useEffect(() => {
-    console.log('User loading state:', loading);
-  }, [loading]);
+  // useEffect(() => {
+  //   console.log('User loading state:', loading);
+  // }, [loading]);
 
   const value = {
     user,
