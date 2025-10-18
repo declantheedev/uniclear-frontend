@@ -114,7 +114,7 @@ const DepartmentClearance = ({ uploadUrl = '' }) => {
 
       <div className="flex justify-center mt-6">
         <button onClick={handleSubmit} disabled={submitting} className="px-6 py-2 bg-primary-custom text-white rounded-md">
-          {submitting ? 'Submitting...' : 'Submit'}
+          {submitting ? 'Submitting..' : 'Submit'}
         </button>
       </div>
     </div>
