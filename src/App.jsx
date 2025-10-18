@@ -12,6 +12,7 @@ import StatusContent from './pages/StatusContent'
 import MessagesContent from './pages/MessagesContent'
 import NewContent from './pages/NewContent'
 import ProtectedRoute from './components/ProtectedRoute'
+import Profile from './components/Profile'
 
 function App() {
   return (
@@ -26,8 +27,8 @@ function App() {
           </ProtectedRoute>
         }>
           {/* <Route index element={<DashboardHome />} /> */}
-          <Route index element={<ProfileContent />} />
-          {/* <Route path="profile" element={<ProfileContent />} /> */}
+          <Route index element={<DashboardHome />} />
+          <Route path="profile" element={<Profile />} />
           <Route path="settings" element={<SettingsContent />} />
           <Route path="documents" element={<DocumentsContent />} />
           <Route path="status" element={<StatusContent />} />

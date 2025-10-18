@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import InfoCard from './InfoCard';
 import FeatureCard from './FeatureCard';
-import { Plus, Bell } from 'lucide-react';
+// import { Plus, Bell } from 'lucide-react';
 import Notification from './NotificationBar';
 import { useUser } from '../context/UserContext';
 import { useAuth } from '../context/AuthContext';
