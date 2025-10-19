@@ -4,6 +4,7 @@ import FeatureCard from './FeatureCard';
 // import { Plus, Bell } from 'lucide-react';
 import Notification from './NotificationBar';
 import { useUser } from '../context/UserContext';
+import ProfileCard from './ProfileCard';
 import { useAuth } from '../context/AuthContext';
 
 const Profile = () => {
@@ -47,63 +48,42 @@ const Profile = () => {
       </div>
     );
   }
-
+   const profile = user?.profile;
+  //  const clearances = user?.clearances || [];
+  //  const documents = user?.documents || [];
+  //  const remainingRequirements = user?.remaining_requirements || [];
   return (
     <div className="space-y-6">
       {/* Header card */}
-      <div className="bg-white rounded-lg shadow p-8">
-        <div className="text-center">
-          <h2 className="text-3xl font-extrabold text-primary-custom">
-            {user.first_name} {user.last_name}
-          </h2>
-          <div className="mt-2 text-blue-800 font-bold uppercase tracking-wide text-xl">
-            HENRY KENEDDY {user.matric_number}
-          </div>
-          <div className="mt-2 text-gray-400 uppercase tracking-wide text-sm">
-            REG NO: {user.matric_number}
-          </div>
-
-          <div className="mt-6 flex justify-center">
-            <div className="w-28 h-28 bg-gray-200 rounded-full flex items-center justify-center">
-              {user.profile_picture ? (
-                <img 
-                  src={user.profile_picture} 
-                  alt="Profile" 
-                  className="w-full h-full rounded-full object-cover"
-                />
-              ) : (
-                <span className="text-gray-500">No Image</span>
-              )}
-            </div>
-          </div>
-
-          <div className="mt-6">
-            <button className="px-6 py-2 rounded-md bg-primary-custom text-white">Edit Profile</button>
-          </div>
-        </div>
-      </div>
+      <ProfileCard
+        user={user}
+        loading={loading}
+        isAuthenticated={isAuthenticated}
+        buttonText="Edit Profile"
+        route="profile"
+      />
 
       {/* User Information Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <InfoCard 
           title="Email"
-          value={user.email || 'Not specified'}
+          value={profile.user.email || 'Not specified'}
         />
         <InfoCard 
           title="Level"
-          value={user.level?.full_name || 'Not specified'}
+          value={profile.level || 'Not specified'}
         />
         <InfoCard 
           title="School"
-          value={user.school?.full_name || 'Not specified'}
+          value={profile.school?.full_name || 'Not specified'}
         />
         <InfoCard 
           title="Faculty"
-          value={user.faculty?.full_name || 'Not specified'}
+          value={profile.faculty?.full_name || 'Not specified'}
         />
         <InfoCard 
           title="Department"
-          value={user.department?.full_name || 'Not specified'}
+          value={profile.department?.full_name || 'Not specified'}
         />
       </div>
     </div>

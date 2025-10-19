@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import InfoCard from '../components/InfoCard';
-import FeatureCard from '../components/FeatureCard';
+// import FeatureCard from '../components/FeatureCard';
 import { Plus, Bell } from 'lucide-react';
 // import Notification from '../components/NotificationBar';
 import { useUser } from '../context/UserContext';
 import { useAuth } from '../context/AuthContext';
+import ProfileCard from '../components/ProfileCard';
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const DashboardHome = () => {
   const { user, loading } = useUser();
@@ -17,6 +19,11 @@ const DashboardHome = () => {
     }
   }, [isAuthenticated, accessToken, user, fetchUserData]);
 
+    // Destructure the parts of the dashboard data
+  // const profile = user?.profile;
+  // const clearances = user?.clearances || [];
+  // const documents = user?.documents || [];
+  // const remainingRequirements = user?.remaining_requirements || [];
   // Debug: Log when component renders
   // useEffect(() => {
   //   console.log('Profile component rendered with:', { user, loading, isAuthenticated });
@@ -24,8 +31,16 @@ const DashboardHome = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-custom"></div>
+      <div className="flex flex-col justify-center items-center h-64 space-y-4">
+        <div className="relative">
+          <div className="w-16 h-16 border-4 border-blue-200 rounded-full animate-spin"></div>
+          <div className="absolute top-0 left-0 w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+        <div className="flex items-center space-x-2">
+          <Bell className="text-blue-500 animate-pulse" size={24} />
+          <h1 className="text-xl font-semibold text-blue-600">Loading your dashboard...</h1>
+        </div>
+        <p className="text-sm text-gray-500">Fetching your profile and clearance information</p>
       </div>
     );
   }
@@ -51,39 +66,18 @@ const DashboardHome = () => {
   return (
     <div className="space-y-6">
       {/* Header card */}
-      <div className="bg-white rounded-lg shadow p-8">
-        <div className="text-center">
-          <h2 className="text-3xl font-extrabold text-primary-custom">
-            {user.first_name} {user.last_name}
-          </h2>
-          <div className="mt-2 text-blue-800 font-bold uppercase tracking-wide text-xl">
-            HENRY KENEDDY {user.matric_number}
-          </div>
-          <div className="mt-2 text-gray-400 uppercase tracking-wide text-sm">
-            REG NO: {user.matric_number}
-          </div>
-
-          <div className="mt-6 flex justify-center">
-            <div className="w-28 h-28 bg-gray-200 rounded-full flex items-center justify-center">
-              {user.profile_picture ? (
-                <img 
-                  src={user.profile_picture} 
-                  alt="Profile" 
-                  className="w-full h-full rounded-full object-cover"
-                />
-              ) : (
-                <span className="text-gray-500">No Image</span>
-              )}
-            </div>
-          </div>
-
-          <div className="mt-6">
-            <button className="px-6 py-2 rounded-md bg-primary-custom text-white">Edit Profile</button>
-          </div>
-        </div>
-      </div>
+     <ProfileCard
+        user={user}
+        loading={loading}
+        isAuthenticated={isAuthenticated}
+        buttonText="Edit Profile"
+        route="profile"
+      />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6"> 
-          <InfoCard icon={<Plus />} use={"Start another clearance"}/>
+
+          <InfoCard icon={<Plus />} text={"Start Your clearance"} handleOnClick={() => {
+            
+          }} />
       </div>  
     </div>
   )}

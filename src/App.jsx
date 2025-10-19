@@ -5,13 +5,13 @@ import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import DashboardLayout from './pages/DashboardLayout'
 import DashboardHome from './pages/DashboardHome'
-import ProfileContent from './pages/ProfileContent'
 import SettingsContent from './pages/SettingsContent'
-import DocumentsContent from './pages/DocumentsContent'
+import DocumentsContent from './components/DocumentsContent'
 import StatusContent from './pages/StatusContent'
 import MessagesContent from './pages/MessagesContent'
 import NewContent from './pages/NewContent'
 import ProtectedRoute from './components/ProtectedRoute'
+import NotFound from './pages/NotFound'
 import Profile from './components/Profile'
 
 function App() {
@@ -21,6 +21,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="*" element={<NotFound />} />
         <Route path="/dashboard" element={
           <ProtectedRoute>
             <DashboardLayout />

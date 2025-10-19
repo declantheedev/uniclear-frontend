@@ -36,7 +36,7 @@ const SideBar = ({ onClose }) => {
       )}
       
       <div>
-        <h1 className="text-2xl font-bold mb-8 text-center">Dashboard</h1>
+        {/* <h1 className="text-2xl font-bold mb-8 text-center">Dashboard</h1> */}
 
         <nav className="space-y-6">
           <NavLink 
