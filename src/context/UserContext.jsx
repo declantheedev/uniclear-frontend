@@ -15,11 +15,11 @@ export const UserProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   // Debug: Log user data changes
-  useEffect(() => {
-    if (user) {
-      console.log('User data updated:', user);
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   if (user) {
+  //     console.log('User data updated:', user);
+  //   }
+  // }, [user]);
 
   // Debug: Log loading state changes
   // useEffect(() => {
