@@ -1,7 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
+
 const ProfileCard = ({ user, loading, isAuthenticated, buttonText, route }) => {
+  const navigate = useNavigate()
   // Handle loading state
   if (loading) {
     return (
@@ -62,7 +65,7 @@ const ProfileCard = ({ user, loading, isAuthenticated, buttonText, route }) => {
           <div className="mt-6">
             <button
               className="px-6 py-2 rounded-md bg-primary-custom text-white"
-              onClick={() => (window.location.href = `/dashboard/${route}`)}
+              onClick={() => navigate(`/dashboard/${route}`)}
             >
               {buttonText}
             </button>

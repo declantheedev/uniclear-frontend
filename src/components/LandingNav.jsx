@@ -2,12 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const LandingNav = () => {
+  
   return (
     <header className="w-full bg-white shadow-sm">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         {/* Logo and brand */}
         <div className="flex items-center gap-2">
-          <img src="/Uniclearlogo.png" alt="Uniclear logo" className="h-8 w-auto" />
+          <Link to="/" className="flex items-center group">
+            <img src="/Uniclearlogo.png" alt="Uniclear logo" className="h-8 w-auto" />
+          </Link>
         </div>
 
         {/* Navigation links - hidden on mobile, visible on md and up */}
