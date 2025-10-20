@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ComingSoon from '../pages/ComingSoon';
 
 const LandingNav = () => {
   
@@ -16,7 +17,7 @@ const LandingNav = () => {
         {/* Navigation links - hidden on mobile, visible on md and up */}
         <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-sm">
           <a href="#features" className="text-primary-custom hover:underline">Features</a>
-          <a href="#how-it-works" className="text-primary-custom hover:underline">How it works</a>
+          <a href="#learn-more" className="text-primary-custom hover:underline">How it works</a>
           <a href="#support" className="text-primary-custom hover:underline">Support</a>
         </nav>
 
