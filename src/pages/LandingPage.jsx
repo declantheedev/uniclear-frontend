@@ -90,7 +90,7 @@ const LandingPage = () => {
       </section>
 
       {/* How it works */}
-      <section id="how-it-works" className="py-12 sm:py-16 bg-white">
+      <section id="learn-more" className="py-12 sm:py-16 bg-white">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-3 sm:mb-4">How it works</h2>
           <p className="text-center text-gray-600 mb-8 sm:mb-12 text-sm sm:text-base">Complete your clearance with just few steps</p>

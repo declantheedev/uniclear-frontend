@@ -10,6 +10,7 @@ import DocumentsContent from './components/DocumentsContent'
 import StatusContent from './pages/StatusContent'
 import MessagesContent from './pages/MessagesContent'
 import NewContent from './pages/NewContent'
+import ComingSoon from './pages/ComingSoon'
 import ProtectedRoute from './components/ProtectedRoute'
 import NotFound from './pages/NotFound'
 import Profile from './components/Profile'
@@ -21,6 +22,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path='/comingsoon' element={<ComingSoon/>}/>
         <Route path="*" element={<NotFound />} />
         <Route path="/dashboard" element={
           <ProtectedRoute>

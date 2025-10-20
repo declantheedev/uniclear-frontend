@@ -3,12 +3,19 @@ import { Link } from 'react-router-dom';
 import { User, Menu, UserCircle, Settings, LogOut } from 'lucide-react';
 import NotificationBar from './NotificationBar';
 import NotificationList from './NotificationList';
+import { useAuth } from '../context/AuthContext';
 
 const NavBar = ({ onMenuClick }) => {
   const [showNotifications, setShowNotifications] = useState(false);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const notificationRef = useRef(null);
   const profileMenuRef = useRef(null);
+  const { logout } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+  };
+
 
   const toggleNotifications = () => {
     setShowNotifications(!showNotifications);
@@ -50,8 +57,10 @@ const NavBar = ({ onMenuClick }) => {
             >
               <Menu className="w-6 h-6" />
             </button>
-
-            <img src="/Uniclearlogo.png" alt="Uniclear logo" className="h-8 w-auto" />
+            <Link to="dashboard/" className="flex items-center group" >
+              <img src="/Uniclearlogo.png" alt="Uniclear logo" className="h-8 w-auto" />
+            </Link>
+            
           </div>
 
           {/* Right side icons */}
@@ -93,13 +102,13 @@ const NavBar = ({ onMenuClick }) => {
                     <span>Settings</span>
                   </Link>
                   <div className="border-t border-gray-100 my-1"></div>
-                  <Link
-                    to="/logout"
-                    className="flex items-center px-4 py-2 text-sm text-red-600 hover:bg-gray-100 transition-colors duration-200"
+                  <button
+                    onClick={handleLogout}
+                    className="flex items-center w-full px-4 py-2 text-sm text-red-600 hover:bg-gray-100 transition-colors duration-200"
                   >
                     <LogOut className="w-4 h-4 mr-2 text-red-500" />
                     <span>Logout</span>
-                  </Link>
+                  </button>
                 </div>
               )}
             </div>
