@@ -8,6 +8,7 @@ import DashboardHome from './pages/DashboardHome'
 import SettingsContent from './pages/SettingsContent'
 import DocumentsContent from './components/DocumentsContent'
 import StatusContent from './pages/StatusContent'
+import DepartmentClearance from './components/DepartmentClearance'
 import MessagesContent from './pages/MessagesContent'
 import NewContent from './pages/NewContent'
 import ComingSoon from './pages/ComingSoon'
@@ -34,6 +35,7 @@ function App() {
           <Route path="profile" element={<Profile />} />
           <Route path="settings" element={<SettingsContent />} />
           <Route path="documents" element={<DocumentsContent />} />
+          <Route path="departmental" element={<DepartmentClearance/>} />
           <Route path="status" element={<StatusContent />} />
           <Route path="messages" element={<MessagesContent />} />
           <Route path="new" element={<NewContent />} />

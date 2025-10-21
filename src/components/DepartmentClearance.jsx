@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import List from './List';
+import { FileText } from 'lucide-react';
 import pickDocumentFile from '../utils/FIleUpload';
 
 const items = [
@@ -103,6 +104,10 @@ const DepartmentClearance = ({ uploadUrl = '' }) => {
 
   return (
     <div className="space-y-4 p-4">
+      <div className="flex items-center justify-center gap-2 mb-6">
+        <FileText className="w-8 h-8 text-gray-700" />
+        <h1 className="text-2xl font-bold text-gray-800">Required Documents for Departmental Clearance</h1>
+      </div>
       {items.map((it) => (
         <List
           key={it}
