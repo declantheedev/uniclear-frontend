@@ -72,6 +72,7 @@ function LoginPage() {
               id="regNo"
               name="regNo"
               type="text"
+              required
               maxLength="11"
               pattern="[0-9]*"
               className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"

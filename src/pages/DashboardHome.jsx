@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import InfoCard from '../components/InfoCard';
 // import FeatureCard from '../components/FeatureCard';
 import { Plus, Bell } from 'lucide-react';
@@ -6,11 +6,12 @@ import { Plus, Bell } from 'lucide-react';
 import { useUser } from '../context/UserContext';
 import { useAuth } from '../context/AuthContext';
 import ProfileCard from '../components/ProfileCard';
-const BASE_URL = import.meta.env.VITE_BASE_URL;
+import DeptPop from '../components/DeptPop';
 
 const DashboardHome = () => {
   const { user, loading } = useUser();
   const { isAuthenticated, fetchUserData, accessToken } = useAuth();
+  const [isDeptPopOpen, setIsDeptPopOpen] = useState(false);
 
   // Fetch user data when component mounts and user is authenticated
   useEffect(() => {
@@ -76,9 +77,10 @@ const DashboardHome = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6"> 
 
           <InfoCard icon={<Plus />} text={"Start Your clearance"} handleOnClick={() => {
-            
+            setIsDeptPopOpen(true);
           }} />
       </div>  
+      <DeptPop isOpen={isDeptPopOpen} onClose={() => setIsDeptPopOpen(false)} />
     </div>
   )}
     

@@ -19,6 +19,15 @@ const SignUp = () => {
     confirmPassword: '',
     profilePicture: null
   });
+  const isValidFUTORegNo = (reg) => {
+    const regEx = /^[0-9]{11}$/;
+    const year = new Date().getFullYear();
+    const minYear = 2000;
+    const inputYear = parseInt(reg.slice(0, 4), 10);
+    if (!regEx.test(reg)) return false;
+    if (inputYear < minYear || inputYear > year) return false;
+    return true;
+  };
 
   const [previewUrl, setPreviewUrl] = useState(null);
   const navigate = useNavigate();
@@ -346,9 +355,13 @@ const SignUp = () => {
               label="Reg No."
               id="regNo"
               name="regNo"
+              type="text"
+              maxLength="11"
+              pattern="[0-9]*"
               value={formData.regNo}
               onChange={handleChange}
               placeholder="Registration Number"
+              required
             />
             
             <div>

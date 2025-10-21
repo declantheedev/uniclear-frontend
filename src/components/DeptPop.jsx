@@ -1,30 +1,22 @@
 import React from 'react';
-import pickDocumentFile from '../utils/FIleUpload';
-/**
- * DeptPop
- * Props:
- *  - isOpen: boolean
- *  - onClose: fn
- *  - onSelect: fn(option)
- *  - title: string
- *  - options: array of strings
- */
+import { useNavigate } from 'react-router-dom';
 
-const DeptPop = ({ isOpen = true, onClose = () => {}, onSelect = () => {}, title = 'Pick A Clearance', options = ['Departmental', 'Physical', 'Faculty', 'SUG', 'Library'] }) => {
+const DeptPop = ({
+  isOpen = true,
+  onClose = () => {},
+  title = 'Pick A Clearance',
+  options = ['Departmental', 'Physical', 'Faculty', 'SUG', 'Library'],
+}) => {
+  const navigate = useNavigate();
+
   if (!isOpen) return null;
 
-    // When an option is selected, open the file picker and return the result via onSelect.
-    const handleOptionClick = async (opt) => {
-        console.log('Option clicked:', opt);
-        try {
-            const result = await pickDocumentFile();
-            console.log('pickDocumentFile result:', result);
-            onSelect({ option: opt, file: result });
-        } catch (err) {
-            console.error('pickDocumentFile error:', err);
-            onSelect({ option: opt, error: err });
-        }
-    };
+  // When an option is selected, navigate to the corresponding route and close the popup.
+  const handleOptionClick = (opt) => {
+    const path = `/dashboard/${opt.toLowerCase()}`;
+    navigate(path);
+    onClose(); // Close the popup after navigation
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
@@ -40,13 +32,16 @@ const DeptPop = ({ isOpen = true, onClose = () => {}, onSelect = () => {}, title
               <button
                 key={opt}
                 onClick={() => handleOptionClick(opt)}
-                className={`w-full text-left bg-white text-gray-900 py-4 px-6 rounded-lg shadow flex items-center gap-4 hover:shadow-md transition-shadow ${idx === 0 ? 'ring-2 ring-white/40' : ''}`}
+                className={`w-full text-left bg-white text-gray-900 py-4 px-6 rounded-lg shadow flex items-center gap-4 hover:shadow-md transition-shadow ${
+                  idx === 0 ? 'ring-2 ring-white/40' : ''
+                }`}
               >
-                <span className="text-lg font-medium">{idx + 1}. {opt}</span>
+                <span className="text-lg font-medium">
+                  {idx + 1}. {opt}
+                </span>
               </button>
             ))}
           </div>
-
         </div>
       </div>
     </div>
