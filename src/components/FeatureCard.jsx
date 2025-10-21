@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FeatureCard = ({ icon, title }) => {
+const FeatureCard = ({ icon, title, use }) => {
   return (
     <div className="bg-white rounded-lg shadow-sm p-6 flex gap-4 items-center">
       <div className="w-12 h-12 rounded-lg bg-gray-50 flex items-center justify-center">
