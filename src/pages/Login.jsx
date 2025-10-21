@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import logo from "/Uniclearlogo.png";
 import { useAuth } from '../context/AuthContext';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 function LoginPage() {
   const [formData, setFormData] = useState({
@@ -41,7 +42,11 @@ function LoginPage() {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>; // Or a spinner component
+    return (
+      <div className="relative min-h-screen flex items-center justify-center px-2 overflow-hidden bg-gradient-to-b from-white from-50% to-blue-500 to-100%">
+        <LoadingSpinner />
+      </div>
+    );
   }
 
   return (
