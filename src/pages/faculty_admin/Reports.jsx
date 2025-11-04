@@ -1,0 +1,12 @@
+import React from 'react';
+
+const Reports = () => {
+  return (
+    <div>
+      <h1 className="text-2xl font-bold">Reports</h1>
+      <p>Here you can view and generate reports.</p>
+    </div>
+  );
+};
+
+export default Reports;
