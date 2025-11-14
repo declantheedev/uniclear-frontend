@@ -8,7 +8,7 @@ const Sidebar = () => {
   const links = sidebarLinks[role] || [];
 
   return (
-    <div className="w-64 bg-gray-800 text-white h-screen p-4">
+    <div className="w-64 bg-gray-800 text-white sticky top-0 min-h-screen p-4">
       <h2 className="text-2xl font-bold mb-4">Dashboard</h2>
       <nav>
         <ul>

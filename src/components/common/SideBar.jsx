@@ -11,7 +11,7 @@ const Icon = ({ children }) => (
 const SideBar = ({ navigationItems }) => {
   return (
     <aside
-      className="h-full p-6 text-white flex flex-col justify-between"
+      className="sticky top-0 min-h-screen p-6 text-white flex flex-col justify-between"
     //   style={{ backgroundColor: 'var(--color-primary)' }}
       aria-label="Main sidebar"
     >
