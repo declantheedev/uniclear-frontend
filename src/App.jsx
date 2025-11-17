@@ -29,6 +29,7 @@ import Attendance from './pages/staff/Attendance';
 // Student pages
 import StudentDashboard from './pages/student/Dashboard';
 import Courses from './pages/student/Courses';
+import StudentProfile from './pages/student/Profile.jsx';
 
 function App() {
   return (
@@ -66,6 +67,8 @@ function App() {
             <Route element={<ProtectedRoute allowedRoles={['student']} />}>
               <Route path="student/dashboard" element={<StudentDashboard />} />
               <Route path="student/courses" element={<Courses />} />
+              <Route path="student/profile" element={<StudentProfile />} />
+
             </Route>
           </Route>
 

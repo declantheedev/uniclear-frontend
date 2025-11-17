@@ -19,7 +19,8 @@ export const sidebarLinks = {
     { path: '/staff/attendance', label: 'Attendance', icon: 'CheckCircle' },
   ],
   student: [
-    { path: '/student/dashboard', label: 'Dashboard', icon: 'Home' },
+    { path: '/student/dashboard', label: 'Home', icon: 'Home' },
+    { path: '/student/profile', label: 'Profile', icon: 'User' },
     { path: '/student/courses', label: 'Courses', icon: 'BookOpen' },
   ],
 };

@@ -24,7 +24,7 @@ const Sidebar = ({ onClose }) => {
 
   return (
     <aside
-      className="h-100 p-10 text-white flex flex-col justify-between"
+      className="h-100 pt-8 pb-5 pl-5 pr-10 text-white flex flex-col justify-between"
       style={{ backgroundColor: '#2600FF' }}
       aria-label="Main sidebar"
     >
@@ -42,24 +42,24 @@ const Sidebar = ({ onClose }) => {
       )}
       
       <div>
-        <nav className="space-y-6">
+        <nav className="space-y-5">
           {links.map((link) => (
             <NavLink 
               key={link.path}
               to={link.path}
               end={link.path === '' || link.path === '/'}
               className={({ isActive }) => 
-                `flex items-center gap-3 w-full ${isActive ? 'bg-white/20 rounded-md p-2' : ''}`
+                `flex items-center gap-2 w-full p-2 ${isActive ? 'bg-white/20 rounded-md' : ''}`
               }
             >
               <Icon iconName={link.icon} />
-              <span className="text-lg">{link.label}</span>
+              <span className="text-sm">{link.label}</span>
             </NavLink>
           ))}
         </nav>
       </div>
 
-      <div className="mt-8">
+      <div className="mt-2">
         <button 
           onClick={handleLogout}
           className="flex items-center gap-3 text-sm opacity-90 bg-transparent border-none text-white cursor-pointer"
