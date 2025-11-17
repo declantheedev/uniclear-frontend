@@ -1,24 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-// import { ChevronLeft, ChevronRight, User, FileText, Check, MessageSquare, Plus, LogOut, X, Home } from 'lucide-react';
-import { LogOut, X} from 'lucide-react';
+import * as LucideIcons from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { sidebarLinks } from '../../config/sidebarLinks';
 
 
-const Icon = ({ children }) => (
-  <div className="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 text-white">
-    {children}
-  </div>
-);
+const Icon = ({ iconName }) => {
+  const IconComponent = LucideIcons[iconName];
+  return (
+    <div className="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 text-white">
+      {IconComponent ? <IconComponent className="w-5 h-5" /> : null}
+    </div>
+  );
+};
 
 const Sidebar = ({ onClose }) => {
   const { role, logout } = useAuth();
   const links = sidebarLinks[role] || [];
 
-  // const handleLogout = () => {
-  //   logout();
-  // };
+  const handleLogout = () => {
+    logout();
+  };
 
   return (
     <aside
@@ -50,9 +52,7 @@ const Sidebar = ({ onClose }) => {
                 `flex items-center gap-3 w-full ${isActive ? 'bg-white/20 rounded-md p-2' : ''}`
               }
             >
-              <Icon>
-                {link.icon}
-              </Icon>
+              <Icon iconName={link.icon} />
               <span className="text-lg">{link.label}</span>
             </NavLink>
           ))}
@@ -61,11 +61,11 @@ const Sidebar = ({ onClose }) => {
 
       <div className="mt-8">
         <button 
-          // onClick={handleLogout}
+          onClick={handleLogout}
           className="flex items-center gap-3 text-sm opacity-90 bg-transparent border-none text-white cursor-pointer"
         >
           <span>Logout</span>
-          <LogOut className="w-4 h-4 ml-2" />
+          <LucideIcons.LogOut className="w-4 h-4 ml-2" />
         </button>
       </div>
     </aside>
