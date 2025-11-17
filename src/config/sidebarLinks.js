@@ -1,6 +1,6 @@
 export const sidebarLinks = {
   admin: [
-    { path: '/admin/dashboard', label: 'Dashboard' },
+    { path: '/admin/dashboard', label: 'Dashboard', icon: 'Home' },
     { path: '/admin/students', label: 'Students' },
     { path: '/admin/notifications', label: 'Notifications' },
     { path: '/admin/messages', label: 'Messages' },
